@@ -1,0 +1,268 @@
+code,name,habitats,geometry
+10,Scattered scrub,"g,h,f,c,u,s","Area,Line"
+11,Hedgerow with trees,h2,Line
+12,Scattered bracken,"g,w,h,c,u,s","Area,Line"
+13,Scattered dwarf shrubs,"g,w,h,f","Area,Line"
+14,Scattered rushes,"g,w,h,f,c,u,s","Area,Line"
+15,Rushes dominant,"g,h,f","Area,Line"
+16,Tall forbs,g,"Area,Line"
+17,Juniper on heaths or calcareous grasslands (H5130),"g,h",Area
+18,Species-rich grassland,"g1,g2,g3","Area,Line"
+19,Coastal and floodplain grazing marsh,"g,f,r",Area
+25,Temperate rainforest,"w1,h3",Area
+26,Wood-pasture and parkland,"g,w,h,f,c",Area
+27,Traditional orchards,"g,w,h",Area
+28,Ancient woodland site,"g,w,h,f,s",Area
+29,Plantation,"g,w,h",Area
+30,Semi-natural woodland,w,Area
+31,Secondary woodland,w,Area
+32,Scattered trees,"g,h,f,c,u,s",Area
+33,Line of trees,w,Line
+34,Ecologically valuable line of trees,w,Line
+40,Ponds (priority habitat),r1,"Area,Point"
+41,Pond (non-priority),r1,"Area,Point"
+42,Pond,r1,"Area,Point"
+43,Lake,r1,Area
+44,Lake (non-priority),r1,Area
+45,Reservoir,r1,Area
+46,Ornamental lakes or ponds,r1,"Area,Point"
+47,Freshwater natural,r,"Area,Line"
+48,Freshwater heavily modified,r2,"Area,Line"
+49,Freshwater artificial,r,"Area,Line,Point"
+50,Ditch,"g,w,h,r",Line
+51,Chalk rivers,r2,"Area,Line"
+55,Floodplain wetland mosaic,"f1b,f2,g,h1,r,w1d","Area,Line"
+56,Depressions on peat substrates (H7150),"g,h,f,s",Area
+57,Peat,"g,w,h,f,c,s",Area
+60,Long continuity habitat,"g,w,h,f,c,s",Area
+61,Re-created habitat,"g,w,h,f,c,u,s,r,t","Area,Line"
+62,Biodiversity offset,"g,w,h,f,c,u,s,r,t","Area,Line"
+63,Caves not open to the public (H8310),"g,w,h,s",Point
+70,Machair (H21A0),"g,w,h,f,c,u,s,r",Area
+71,Heathland on maritime cliffs and slopes,"h,s",Area
+72,Dunes with creeping willow (H2170),"h,s",Area
+73,Inland saltmarshes (H1340),"g,f,s",Area
+74,Estuaries (H1130),"r,t",Area
+75,Large shallow inlets and bays (H1160),t,Area
+76,Reefs (H1170),t,"Area,Line"
+77,Sea caves (H8330),t,"Area,Point"
+80,Open mosaic habitats on previously developed land,"g,w,h,f,u,s,r",Area
+81,Ruderal or ephemeral,"g,w,h,f,c,u,s",Area
+82,Vacant or derelict land,"g,h,s,u","Area,Line"
+83,Solar panel array,"g,h,c,u,s","Area,Line"
+84,Wind farm,"g,h,f,c,u,s",Area
+85,Active sand pit or quarry or open cast mine,"h,u,s","Area,Point"
+86,Green roof,u1b5,"Area,Point"
+87,Biodiverse green roof,u1b5,"Area,Point"
+88,Intensive green roof,u1b5,"Area,Point"
+89,Other green roof,u1b5,"Area,Point"
+90,Cemeteries and churchyards,"g,w,h,u,s,r",Area
+100,Grazed,"g,w,h,f,c,s",Area
+101,Cattle grazed,"g,w,h,f,s",Area
+102,Sheep grazed,"g,w,h,f,c,s",Area
+103,Horse grazed,"g,w,h,f,s",Area
+104,Other grazed,"g,w,h,f,c,s",Area
+105,Burnt,"g,w,h,f,s,c,u",Area
+106,Mown,"g,h,f,s","Area,Line"
+107,Mown and collected,"g,h,f,s","Area,Line"
+108,Frequently mown,"g,s,u","Area,Line"
+109,Hay,"g,h,s",Area
+110,Silage and haylage,g,Area
+111,Hedgebank,"h,w",Line
+113,Stone-faced bank,"g,w,h,c,u,s",Line
+114,Dry stone wall,u1e,Line
+115,Grazing and browsing exclosure,"g,h",Line
+116,Flailed hedgerow,h2,Line
+117,Laid hedgerow,h2,Line
+118,Species-rich hedgerow ground flora,h2,Line
+119,Green lane,"g,w,h,u","Area,Line"
+120,Grouse moor,"g,h,f",Area
+121,Calcareous-acidic mosaic,"g,h",Area
+122,Ridge and furrow,"g,w,h",Area
+123,Water meadow irrigation,"g,f",Area
+124,Anthills,"g,w,h",Area
+125,Flower forage abundant,"g,w,h,f,c,u,s",Area
+126,Seed forage abundant,"c,g,u,s",Area
+127,Sward type mosaic,g,Area
+128,Tall or tussocky sward,g,Area
+129,Wet moss lawns,"g,w,h,f",Area
+130,Waxcap grassland,g,Area
+131,Arable reversion grassland,g,Area
+200,Tree,"g,w,h,f,c,u,s,r",Point
+201,Young trees planted,w,Area
+202,Young trees self-set,w,Area
+203,Mature tree,"g,w,h,f,c,u,s,r",Point
+204,Veteran tree,"g,w,h,f,c,u,s","Area,Point"
+205,Ancient tree,"g,h,f,c,u,s,r",Point
+206,Felled,"g,w,h,s",Area
+207,Forest brash,w,Area
+208,Ground prepared for planting,"g,w,h,s",Area
+209,Avenue,"g,w,h,f,c,u,s,r",Line
+210,Coppice,w,Area
+211,Coppice with standards,w,Area
+212,High forest,w,Area
+213,Complex woody structure,w,Area
+214,Fallen dead wood abundant,w,Area
+215,Standing dead wood abundant,"g,w,h,f,s",Area
+216,Large hollows or cavities,"g,w,h,f,c,u,s",Point
+217,Woodland open space,"g,w,h,f,s","Area,Line"
+300,Lowland rivers with shallow gradients and rich,r2,"Area,Line"
+301,Meso-eutrophic rivers on sandstone and hard,r2,"Area,Line"
+302,Mesotrophic and oligo- mesotrophic rivers,r2,"Area,Line"
+303,Acid and nutrient-poor rivers,r2,"Area,Line"
+304,Unobstructed river system,r2,"Area,Line"
+305,Spring,"g,w,h,f,c,s,r","Line,Point"
+306,Headwaters,r2,"Area,Line"
+307,Waterfall,"r2,s","Line,Point"
+308,Active shingle rivers,r2,"Area,Line"
+309,Riffles,r2,"Area,Line"
+310,Gravel beds,r2,"Area,Line"
+311,Coarse woody debris in- channel,r,"Line,Point"
+312,Base-rich water,"f,r","Area,Line"
+313,Backwaters,r,"Area,Line"
+314,Mudbanks,"r,s,t","Area,Line"
+315,Exposed riverine sediments,r2,"Area,Line"
+316,Shallow pools,r2,"Area,Line,Point"
+317,Tidal river,r2,"Area,Line"
+318,Canalside,"g,w,h,f,u,s",Area
+319,Watercourse buffer strip,"g,h,f","Area,Line"
+320,Lakes and ponds buffer,"g,h,f","Area,Line"
+321,Timber sluice,r,Point
+322,Re-meandering,r2,"Area,Line"
+323,Riverbank re-profiling,r2,Line
+400,Topogenous,f,Area
+401,Soligenous,f,Area
+402,Rich fen,f,Area
+403,Poor fen,f,Area
+404,Fertile fen,f,"Area,Line"
+405,Infertile fen,f,"Area,Line"
+406,Swamp,f,Area
+407,Tall fen,f,Area
+408,Small-sedge fen,f,Area
+409,Bryophyte-dominated,f,Area
+410,Open water fen,"f,r",Area
+411,Transition fen,"f,r",Area
+412,Basin fen,f,Area
+413,Floodplain fen,f,Area
+414,Basin raised bog lagg fen,f,Area
+415,Floodplain raised bog lagg fen,f,Area
+416,Spring fen,f,Area
+417,Surface flow spring fen,f,Area
+418,Percolation spring fen,f,Area
+419,Surface flush or rill or soakaway,f,"Area,Line"
+420,Valley fen,f,Area
+421,Ladder fen,f,Area
+422,Cutover peat,"g,h,f,r",Area
+423,Grip,"g,h,f",Line
+424,Grip blocking,"g,h,f",Point
+425,Beaver-made wetland,"g,w,h,f",Area
+500,Dry,"g,w,h,c,u,s",Area
+501,Mesic,"g,w,h,c,u,s","Area,Line"
+502,Seasonally wet,"g,w,h,c,u,s","Area,Line"
+503,Wet,"g,w,h,f,c,u,s","Area,Line"
+504,Waterlogged,"w,f,c,u,s","Area,Line"
+505,Inundation vegetation,"g,f,s,r",Area
+506,Nutrient-poor substrate,"g,w,h,f,c,u,s,r",Area
+507,Nutrient-enriched substrate,"g,w,h,f,c,u,s,r",Area
+508,Base-rich substrate,"g,w,h,f,c,u,s,r",Area
+509,Acidic substrate,"g,w,h,f,c,u,s,r",Area
+510,Bare ground,"g,w,h,f,c,u,s,r",Area
+511,Compacted substrate,"g,w,h,f,c,u,s,r",Area
+512,Landslips,"g,w,h,f,c,u,s","Area,Line"
+513,Rock outcrop,"g,w,h,f,s","Area,Point"
+514,Snow patch,"g,h,f,s",Point
+515,High humidity levels,"g,w,h,f,s,r",Area
+516,Active Management,"g,w,h,f,c,u,s,r","Area,Line,Point"
+517,Recent Management,"g,w,h,f,c,u,s,r","Area,Line,Point"
+518,Neglected,"g,w,h,f,c,u,s,r","Area,Line,Point"
+519,Abandoned,"g,w,h,f,c,u,s,r","Area,Line,Point"
+520,Ancient management,"g,w,h,f,c,u,s,r","Area,Line,Point"
+521,Unmanaged,"g,w,h,f,c,u,s,r","Area,Line,Point"
+522,Native,"g,w,h,f,c,u,s,r,t","Area,Line,Point"
+523,Non-native,"g,w,h,f,c,u,s,r,t","Area,Line,Point"
+524,Invasive non-native species,"g,w,h,f,c,u,s,r,t","Area,Line,Point"
+525,Invasive species control,"g,w,h,f,c,u,s,r,t","Area,Line,Point"
+526,Accessible natural greenspace,"g,w,h,f,s,r","Area,Line"
+527,Nature reserve,u,Area
+528,Walking or cycling route,"g,w,h,f,u,s","Area,Line"
+529,Golf course,"g,w,h,f,c,u,s,r",Area
+530,Ecotone,"g,w,h,f,s,r","Area,Line"
+531,Cave open to the public,"g,h,s,u",Point
+532,Scattered grass,"f,h,s,t,u,w","Area,Line"
+600,Ploughed,c,Area
+601,Minimum tillage,c,Area
+602,No tillage,c,Area
+603,In-field fallow plot,c,"Area,Point"
+604,Whole-field fallow,c,Area
+605,Mid-field bund,"g,c","Area,Line"
+606,Mid-field swale,"g,c","Area,Line"
+607,Beetle bank,"g,c","Area,Line"
+608,Under-field drainage,"g,c","Area,Line"
+609,Cover crops,c,Area
+610,Catch crops,c,Area
+611,Soil erosion,"g,w,h,c,f,s",Point
+612,Fence,u1e,Line
+613,Fish farm,"g,f,c,u,s,r,t",Area
+614,Permanent agricultural grassland,g,Area
+615,City farm,"g,c,u",Area
+616,Allotments,c,Area
+617,Agroforestry,"g,h,w,c",Area
+618,Paludiculture,"g,f,c",Area
+700,Port or marina,"r,t",Area
+701,Sea wall,u1b6,"Area,Line"
+702,Saline influence,"g,w,h,f,s,r",Area
+703,Shelter from wave action,t,"Area,Line"
+800,Road,u1b6,"Area,Line"
+801,Road verge or island,"g,w,h,f,u,s,r","Area,Line"
+802,Railway,u,"Area,Line"
+803,Railside,"g,w,h,f,u,s","Area,Line"
+804,Car Park,u,Area
+805,Development site,u,Area
+806,Urban park,"g,w,h,f,u,s,r",Area
+807,Pocket park,"g,w,h,f,u,s,r",Area
+808,Neighbourhood park,"g,w,h,f,u,s,r",Area
+809,Community park,"g,w,h,f,u,s,r",Area
+810,District park,"g,w,h,f,u,s,r",Area
+811,Regional park,"g,w,h,f,u,s,r",Area
+812,Country park,"g,w,h,f,u,s,r",Area
+813,Educational building,u,Area
+814,Educational premises open space,"g,w,h,f,u,s,r",Area
+815,Commercial building,u,Area
+816,Commercial premises open space,"g,w,h,f,u,s,r",Area
+817,Industrial building,u,Area
+818,Residential building,u1b5,Area
+819,Residential premises open space,"g,w,h,f,u,s,r",Area
+820,Natural sports pitches,"g,u,s",Area
+821,Artificial sports pitches,u1,Area
+822,Recreation ground,"g,u",Area
+823,Children's Play Space,"g,u","Area,Point"
+824,Adventure playground,"g,w,s,r,u","Area,Point"
+825,Ruined building,"g,w,h,u,s","Area,Point"
+826,Castle or historic building or monument,"g,w,u,c","Area,Line"
+827,Garden,"g,w,h,f,u,s,r",Area
+828,Vegetated garden,"g,w,h,f,u,s,r",Area
+829,Unvegetated garden,u1,Area
+830,Community garden,c,Area
+831,Landfill,"g,w,h,u,s",Area
+832,Airport,u,Area
+833,Barn,u,"Area,Point"
+834,Oil or gas drilling or extraction,"g,w,h,f,c,u,s,r,t",Area
+835,Mine,"g,w,h,c,u,s,r,t",Area
+836,Quarry hard rock,"g,w,h,f,s,r",Area
+837,Quarry sand and gravel,"g,w,h,f,s,r",Area
+838,Disused quarry,"g,w,h,s,u","Area,Line"
+839,Track,"g,w,h,f,c,u,s","Area,Line"
+840,Caravan park or permanent campsite,"g,h,u",Area
+841,Green wall,u1b5,Line
+842,Ground-based green wall,u1b5,Line
+843,Facade-bound green wall,u1b5,Line
+844,Balcony green,u1b5,Point
+845,Ground level planters,u1,"Area,Point"
+846,Flower bed,u1,"Area,Point"
+847,Introduced shrub,u1,"Area,Point"
+848,Sustainable drainage system,"g,f,s","Area,Point"
+849,Bioswale,"g,f,s","Area,Line,Point"
+850,Rain garden,"g,f,s","Area,Point"
+851,Culvert,u1,Point
+852,Water treatment filter bed,u1,"Area,Point"
+853,Mortared wall,u1e,Line
