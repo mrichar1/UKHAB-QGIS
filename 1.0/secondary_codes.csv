@@ -1,0 +1,217 @@
+code,name,habitats,geometry
+10,Scattered scrub,"g,h,f,u,s",Area
+11,Scattered trees,"g,h,f,c,u,s",Area
+12,Scattered bracken,"g,w,h,u,s",Area
+13,Scattered dwarf shrubs,"g,h",Area
+14,Scattered rushes,"g,h,f",Area
+15,Rushes dominant,"g,h,f",Area
+17,Ruderal/ephemeral,"g,w,h,f,c,u,s",Area
+18,Calcareous - acidic mosaic,"g,h",Area
+25,Coastal and floodplain grazing marsh,"g,f,r",Area
+27,Heathland on maritime cliffs and slopes,"h,s",Area
+28,Dunes with creeping willow (H2170),"h,s",Area
+29,Inland saltmarshes (H1340),"g,f,s",Area
+35,Biodiversity offset,"g,w,h,f,c,u,s,r,t",Area,Line,Point
+36,Plantation,"w",Area
+37,Semi-natural woodland,"w",Area
+38,Secondary woodland,"w",Area
+39,Freshwater - man-made,"r",Area,Line,Point
+41,Freshwater - natural,"r",Area,Line,Point
+42,Castle/historic building,"u",Area,Point
+45,Canalside,"g,w,h,u,s",Area,Line
+46,Railside,"g,w,h,u,s",Area,Line
+47,Native,"w",Area,Line,Point
+48,Non-native,"w",Area,Line,Point
+52,Coppice with standards,"w",Area
+53,Felled,"w",Area
+54,Ground prepared for planting,"w",Area
+55,High forest,"w",Area
+57,Young trees - self-set,"w",Area
+58,Grazed,"g,w,h,f,s",Area
+59,Cattle grazed,"g,w,h,f,s",Area
+60,Sheep grazed,"g,w,h,f,s",Area
+61,Horse grazed,"g,w,h,f,s",Area
+62,Other grazed,"g,w,h,f,s",Area
+64,Mown,"g,h,f,s",Area
+65,Hay,"g,h,s",Area
+66,Frequently mown,"g,s",Area
+67,Dry stone wall,"g,w,h,c,u,s",Line
+68,Mortared wall,"g,w,h,c,u,s",Line
+69,Fence,"g,w,h,f,c,u,s",Line
+70,Hedgebank,"g,w,h,f,c,u,s",Line
+71,Earthbank,"g,w,h,f,c,u,s",Line
+72,Stone-faced bank,"g,w,h,f,c,u,s",Line
+73,Bare ground,"g,w,h,f,c,u,s,r",Area
+74,Ploughed,"c",Area
+75,Active Management,"g,w,h,f,c,u,s,r",Area,Line,Point
+77,Neglected,"g,w,h,f,c,u,s,r",Area,Line,Point
+78,Abandoned,"g,w,h,f,c,u,s,r",Area,Line,Point
+79,Ancient management,"g,w,h,f,c,u,s,r",Area,Line,Point
+80,Unmanaged,"g,w,h,f,c,u,s,r",Area,Line,Point
+81,Flailed hedgerow,"h",Line
+82,Laid hedgerow,"h",Line
+83,Grip,"h,f",Line,Point
+84,Grip blocking,"h,f",Point
+85,Cutover peat,"h,f,r",Area
+86,Accessible natural greenspace,"g,w,h,f,s,r",Area,Line
+87,Airport,"g,w,h,f,u,s,r",Area
+89,Car Park,"g,w,h,f,c,u,s",Area
+90,Commercial building,"u",Area,Point
+91,Development site,"u",Area
+92,Educational building,,Area,Point
+93,Fish farm,"g,f,c,u,s,r,t",Area
+94,Green lane,"g,w,h",Area,Line
+95,Grouse moor,"f,h",Area
+96,Industrial building,"u",Area,Point
+97,Industrial/Retail building,"u",Area,Point
+98,Institutional building,"u",Area,Point
+99,Nature reserve,"g,w,h,f,c,u,s,r",Area,Line
+100,Oil/gas drilling or extraction,"g,w,h,f,c,u,s,r",Area,Point
+101,Open cast mining,"g,w,h,c,u,s,r",Area
+102,Mine,"g,w,h,c,u,s,r",Point
+103,Permanent agricultural grassland,"g",Area
+104,Port/marina,"t",Area
+105,Quarry - hard rock,"g,w,h,f,s,r",Area
+106,Quarry - sand and gravel,"g,w,h,f,s,r",Area
+107,Railway,"g,w,h,f,c,u,s,r",Area,Line
+108,Reservoir,"r",Area
+109,Residential,"u",Area
+110,Retail,"u",Area
+111,Road,"u",Area,Line
+112,Ruined building,"u",Area,Point
+113,Sea wall,,Area,Line
+114,Solar panel array,"g,h,c,u,s",Area,Point
+115,Track,"g,w,h,f,c,u,s",Area,Line
+116,Wind farm,"g,h,f,c,u,s",Area
+117,Dry,"g,w,h,c,s",Area
+118,Mesic,"g,w,h,c,u,s",Area
+119,Seasonally wet,"g,w,h,f,c,u,s",Area
+120,Wet,"g,w,h,f,c,u,s",Area
+121,Waterlogged,"g,w,h,f,c,u,s",Area
+122,Inundation vegetation,"g,f,s,r",Area
+123,Neutral grassland with calcicoles,"g",Area
+124,Cave open to the public,"g,w,h,s",Point
+125,Soil erosion,"g,w,h,c,f,s",Point
+126,Snow patch,"g,h,f,s",Point
+127,Peat,"g,w,h,f,c,s",Area
+128,Spring,"g,w,h,f,c,s,r",Line,Point
+129,Flush,"g,w,h,f,c,u,s,r",Line
+130,Ecotone,"g,w,h,f,s,r",Area,Line
+131,Tidal river,"r",Area,Line
+132,Nutrient-poor substrate,"g,w,h,f,c,u,s,r",Area
+133,Nutrient-enriched substrate,"g,w,h,f,c,u,s,r",Area
+134,Base-rich substrate,"g,w,h,f,c,u,s,r",Area
+135,Acidic substrate,"g,w,h,f,c,u,s,r",Area
+136,Compacted substrate,"g,w,h,f,c,u,s,r",Area
+137,Ridge and furrow,"g,w",Area
+138,Saline influence,"g,w,h,f,s,r",Area
+140,Anthills,"g,w",Area,Point
+141,Backwaters,"r",Area,Line
+142,Base-rich water,"f,r",Line
+145,Complex woody structure,"w",Area
+147,Fallen dead wood abundant,"w",Area
+148,Flower forage abundant,"g,w,h,f,c,u,s",Area
+149,Gravel beds,"r",Area,Line
+150,High humidity levels,"g,w,h,f,s,r",Area
+151,Landslips,"g,w,h,f,c,u,s",Area,Line
+152,Large hollows or cavities,"g,w,h,f,c,u,s",Point
+153,Mudbanks,"r",Area,Line
+154,Open grown trees,"g,w,h,f,c,u,s,r",Point
+155,Riffles,"r",Area,Line,Point
+156,Rock outcrop,"g,w,h,f,s",Area,Point
+157,Shallow pools,"g,w,h,f,c,u,s,r",Area,Line,Point
+158,Shelter from wave action,"t",Area,Line
+159,Standing dead wood abundant,"g,w,h,f,s",Area
+160,Sward type mosaic,"g",Area
+161,Tall or tussocky sward,"g",Area
+162,Temporary water bodies,"r",Area
+163,Unobstructed river system,"r",Area,Line
+164,Wet moss lawns,"f",Area
+165,Waterfall,"c",Line,Point
+166,Woodland open space,"g,w,h,f,s",Area,Line
+167,Topogenous,"f",Area
+168,Soligenous,"f",Area
+169,Rich fen,"f",Area
+170,Poor fen,"f",Area
+171,Fertile fen,"f",Area
+172,Infertile fen,"f",Area
+173,Swamp,"f",Area
+177,Open water fen,"f",Area
+181,Basin raised bog lagg fen,"f",Area
+182,Flood plain raised bog lagg fen,"f",Area
+183,Spring fen,"f",Area
+186,Surface flush or rill or soakaway,"f",Area,Point
+188,Ladder fen,"f",Area
+200,Parks and gardens,"g,w,h,f,u,s,r",Area
+210,Urban park,"g,w,h,f,u,s,r",Area
+211,Pocket park,"g,w,h,f,u,s,r",Area
+220,Country park,"g,w,h,f,u,s,r",Area
+230,Garden,"g,w,h,f,u,s,r",Area
+231,Vegetated garden,"g,w,h,f,u,s,r",Area
+232,Un-vegetated garden,"u",Area
+300,Natural and semi-natural open space,"g,w,h,f,s,r,t",Area
+320,Heathland,"h",Area
+330,Scrub,"g,h,f,s,r,t",Area
+340,Woodland,"w",Area
+341,Woodland; broadleaved,"w",Area
+342,Woodland; mixed,"w",Area
+343,Woodland; coniferous,"w",Area
+350,Abandoned ruderal and derelict areas,"u",Area
+351,Vacant/derelict land,"u",Area
+352,Disused quarry,"s",Area
+360,Fresh water body,"r",Area,Point
+361,Natural lake or pond,"r",Area,Point
+362,Artificial lake or pond,"r",Area,Point
+370,Wetlands,"f",Area
+380,Coastal,"t",Area
+381,Beaches and sand dunes,"t",Area
+382,Foreshore/rocks,"t",Area
+383,Tidal water,"t",Area
+384,Open saline water,,Area
+400,Green corridors,"g,w,h,f,s,r",Area,Line
+410,Watercourse,"r",Area,Line
+411,Natural watercourse,"r",Area,Line
+412,Artificial watercourse,"r",Area,Line
+420,Green access route,"g,w,h,f,s,r",Area,Line
+421,Walking/cycling route,"g,w,h,f,s",Area,Line
+422,Riparian routes,"r",Area,Line
+430,Transport route open space,"g,w,h,f,s,r",Area,Line
+431,Road island/verge,"g,w,h,f,s,r",Area,Line
+432,Railway corridor,"g,w,h,f,s,r",Area,Line
+500,Outdoor sports facilities,"g,u",Area
+511,Natural sports pitches,"g,u",Area
+512,Artificial sports pitches,"u",Area
+520,Recreation ground,"g,u",Area
+530,Ball courts,"g,u",Area
+531,Natural ball court,"g,u",Area
+532,Artificial ball court,"u",Area
+540,Golf course,"g,u",Area
+550,Race course,"g,u",Area
+560,Bowling green,"g,u",Area
+570,Equestrian centre,"g,u",Area
+580,Other recreational,"g,u",Area
+600,Provision for play and fitness,"u",Area
+610,Children’s Play Space,"u",Area,Point
+611,Children's Play Space; natural,"u",Area,Point
+612,Children's Play Space; non-permeable,"u",Area,Point
+620,Outdoor gym,"u",Area,Point
+621,Natural outdoor gym,"u",Area,Point
+622,Non-permeable outdoor gym,"u",Area,Point
+630,Adventure playground,"u",Area,Point
+631,Natural adventure playground,"u",Area,Point
+632,Non-permeable adventure playground,"u",Area,Point
+640,Youth area,"u",Area,Point
+710,Educational premises open space,"g,w,h,f,u,s,r",Area
+711,Natural educational sports pitches,"g,w,h,f,u,s,r",Area
+713,Other educational open space,"g,w,h,f,u,s,r",Area
+720,Municipal premises open space,"g,w,h,f,u,s,r",Area
+730,Commercial premises open space,"g,w,h,f,u,s,r",Area
+740,Housing estate open space,"g,w,h,f,u,s,r",Area
+800,Cemeteries and churchyards,"g,w,h,u",Area
+810,Cemetery,"g,w,h,u",Area
+820,Churchyard,"g,w,h,u",Area
+900,Small-scale food growing,"g,c",Area
+910,Allotments,"c",Area
+920,Orchard,"g,c",Area
+930,City farm,"g,c",Area
+940,Community garden,"c",Area

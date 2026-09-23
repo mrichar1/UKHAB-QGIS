@@ -1,0 +1,214 @@
+code,habitat,level,geometry
+g,Grassland,2,Area
+g1,Acid grassland,3,Area
+g1a,Lowland dry acid grassland,4,Area
+g1a5,Inland dunes with open grasslands (H2330),5,Area
+g1a6,Other lowland dry acid grassland,5,Area
+g1b,Upland acid grassland,4,Area
+g1b5,Montane acid grasslands (H6150),5,Area
+g1b6,Other upland acid grassland,5,Area
+g1c,Bracken,4,Area
+g1d,Other lowland acid grassland,4,Area
+g2,Calcareous grassland,3,Area
+g2a,Lowland calcareous grassland,4,Area
+g2a5,Dry grasslands and scrub on chalk or limestone; lowland (H6210),5,Area
+g2a6,Dry grasslands and scrub on chalk or limestone; important orchid sites (H6210),5,Area
+g2b,Upland calcareous grassland,4,Area
+g2b5,Alpine and subalpine calcareous grasslands (H6170),5,Area
+g2b6,Species-rich grassland with mat-grass in upland areas (H6230),5,Area
+g2b7,Dry grasslands and scrub on chalk or limestone; upland (H6210),5,Area
+g3,Neutral grassland,3,Area
+g3a,Lowland meadows,4,Area
+g3a5,Lowland hay meadows (H6510),5,Area
+g3b,Upland hay meadows,4,Area
+g3b5,Mountain hay meadows (H6520),5,Area
+g3c,Other neutral grassland,4,Area
+g3c5,Arrhenatherum neutral grassland,5,Area
+g3c6,Lolium-Cynosurus neutral grassland,5,Area
+g3c7,Deschampsia neutral grassland,5,Area
+g3c8,Holcus-Juncus neutral grassland,5,Area
+g4,Modified grassland,3,Area
+w,Woodland and forest,2,Area
+w1,Broadleaved mixed and yew woodland,3,Area
+w1a,Upland oakwood,4,Area
+w1a5,Western acidic oak woodland (H91A0),5,Area
+w1b,Upland mixed ashwoods,4,Area
+w1b5,Lime-maple woodlands of rocky slopes (H9180),5,Area
+w1b6,Other upland mixed ashwoods,5,Area
+w1c,Lowland beech and yew woodland,4,Area
+w1c5,Beech forests on acid soils (H9120),5,Area
+w1c6,Beech forests on neutral to rich soils (H9130),5,Area
+w1c7,Yew-dominated woodland (H91J0),5,Area
+w1c8,Natural box scrub (H5110),5,Area
+w1d,Wet woodland,4,Area
+w1d5,Alder woodland on floodplains (H91E0),5,Area
+w1d6,Bog woodland (H91D0),5,Area
+w1e,Upland birchwoods,4,Area
+w1f,Lowland mixed deciduous woodland,4,Area
+w1f5,Dry oak-dominated woodland (H9190),5,Area
+w1f6,Oak-hornbeam forests (H9160),5,Area
+w1f7,Other Lowland mixed deciduous woodland,5,Area
+w1g,Other woodland; broadleaved,4,Area
+w1g6,Line of trees,5,Line
+w1g7,Other broadleaved woodland types,5,Area
+w1h,Other woodland; mixed,4,Area
+w1h5,Other woodland; mixed; mainly broadleaved,5,Area
+w1h6,Other woodland; mixed; mainly conifer,5,Area
+w2,Coniferous woodland,3,Area
+w2a,Native pine woodlands,4,Area
+w2a5,Caledonian forest (H91C0),5,Area
+w2b,Other Scot's Pine woodland,4,Area
+w2c,Other coniferous woodland,4,Area
+h,Heathland and shrub,2,Area,Line
+h1,Dwarf shrub heath,3,Area
+h1a,Lowland Heathland,4,Area
+h1a5,Dry heaths; lowland (H4030),5,Area
+h1a6,Dry coastal heaths with Cornish heath (H4040),5,Area
+h1a7,Wet heathland with cross-leaved heath; lowland (H4010),5,Area
+h1a8,Wet heathland with Dorset heath and cross-leaved heath (H4020),5,Area
+h1b,Upland Heathland,4,Area
+h1b5,Dry heaths; upland (H4030),5,Area
+h1b6,Wet heathland with cross-leaved heath; upland (H4010),5,Area
+h1c,Mountain heaths and willow scrub,4,Area
+h1c5,Alpine and subalpine heaths (H4060),5,Area
+h1c6,Mountain willow scrub (H4080),5,Area
+h2,Hedgerows,3,Line
+h2a,Hedgerow (priority habitat),4,Line
+h2b,Other hedgerows,4,Line
+h3,Dense scrub,3,Area
+h3a,Blackthorn scrub,4,Area
+h3a5,West coast blackthorn scrub,5,Area
+h3a6,Other blackthorn scrub,5,Area
+h3b,Hazel scrub,4,Area
+h3b5,Atlantic hazel,5,Area
+h3b6,Other hazel scrub,5,Area
+h3c,Sea buckthorn scrub,4,Area
+h3c5,Dunes with sea buckthorn (H2160),5,Area
+h3c6,Other sea buckthorn scrub,5,Area
+h3d,Bramble scrub,4,Area
+h3e,Gorse scrub,4,Area
+h3f,Hawthorn scrub,4,Area
+h3g,Rhododendron scrub,4,Area
+h3h,Mixed scrub,4,Area
+f,Wetland,2,Area
+f1,Bog,3,Area
+f1a,Blanket bog,4,Area
+f1a5,Blanket bog (H7130),5,Area
+f1a6,Degraded blanket bog,5,Area
+f1b,Lowland raised bog,4,Area
+f1b5,Active raised bogs (H7110),5,Area
+f1b6,Degraded raised bog (H7120),5,Area
+f1b7,Other degraded raised bog,5,Area
+f2,Fen marsh and swamp,3,Area
+f2a,Lowland fens,4,Area
+f2a5,Calcium-rich fen dominated by great fen sedge (H7210),5,Area
+f2a6,Hard-water springs depositing lime; lowland (H7220),5,Area
+f2a7,Calcium-rich springwater-fed fens; lowland (H7230),5,Area
+f2a8,Transition mires and quaking bogs; lowland (H7140),5,Area
+f2b,Purple moor grass and rush pastures,4,Area
+f2b5,Purple moor-grass meadows (H6410),5,Area
+f2c,"Upland flushes, fens and swamps",4,Area,Line
+f2c5,Alpine pioneer formations (H7240),5,Area
+f2c6,Hard-water springs depositing lime; upland (H7220),5,Point
+f2c7,Calcium-rich springwater-fed fens; upland (H7230),5,Area
+f2c8,Transition mires and quaking bogs; upland (H7140),5,Area
+f2d,Aquatic marginal vegetation,4,Area,Line
+f2e,Reedbeds,4,Area
+f2f,Other swamps,4,Area
+c,Cropland,2,Area
+c1,Arable and horticulture,3,Area
+c1a,Arable field margins,4,Area
+c1a5,Arable margins sown with tussocky grasses,5,Area
+c1a6,Arable margins sown with wild flowers or a pollen and nectar mix,5,Area
+c1a7,Arable margins cultivated annually with an annual flora,5,Area
+c1a8,Game bird mix strips and corners,5,Area
+c1b,Temporary grass and clover leys,4,Area
+c1c,Cereal crops,4,Area
+c1c5,Winter stubble,5,Area
+c1c6,Game bird mix fields,5,Area
+c1c7,Other cereal crops,5,Area
+c1d,Non-cereal crops,4,Area
+c1d5,Miscanthus,5,Area
+c1d6,Short-rotation copppice,5,Area
+c1d7,Vineyards,5,Area
+c1d8,Other non-cereal crops,5,Area
+c1e,Intensive orchards,4,Area
+c1f,Horticulture,4,Area
+u,Urban,2,Area,Point
+u1,Built-up areas and gardens,3,Area,Line,Point
+u1a,Open Mosaic Habitats on Previously Developed Land,4,Area
+u1b,Developed land; sealed surface,4,Area
+u1b5,Buildings,5,Area,Point
+u1b6,Other developed land,5,Area
+u1c,"Artificial unvegetated, unsealed surface",4,Area
+u1d,Suburban mosaic of developed and natural surface,4,Area
+u1e,Built linear features,4,Line
+s,Sparsely vegetated land,2,Area
+s1,Inland rock,3,Area,Line
+s1a,Inland rock outcrop and scree habitats,4,Area
+s1a5,Acidic scree (H8110),5,Area
+s1a6,Base-rich scree (H8120),5,Area
+s1a7,Plants in crevices in base-rich rocks (H8210),5,Area
+s1a8,Plants in crevices in acid rocks (H8220),5,Area
+s1a9,Tall herb communities (H6430),5,Area
+s1b,Limestone pavement,4,Area
+s1b5,Limestone pavements (H8240),5,Area
+s1c,Calaminarian grasslands,4,Area
+s1c5,Grasslands on soils rich in heavy metals (H6130),5,Area
+s1d,Other inland rock and scree,4,Area
+s2,Supralittoral Rock,3,Area,Line
+s2a,Maritime cliff and slopes,4,Area,Line
+s2a5,Vegetated sea cliffs (H1230),5,Area,Line
+s2a6,Soft rock sea cliffs,5,Area,Line
+s3,Supralittoral Sediment,3,Area,Line
+s3a,Coastal sand dunes,4,Area
+s3a3,Humid dune slacks (H2190),5,Area
+s3a4,Dunes with juniper thickets (H2550),5,Area
+s3a5,Embryonic shifting dunes (H2110),5,Area
+s3a6,Shifting dunes with marram (H2120),5,Area
+s3a7,Dune grassland (H2130),5,Area
+s3a8,Lime-deficient dune heathland with crowberry (H2140),5,Area
+s3a9,Coastal dune heathland (H2150),5,Area
+s3b,Coastal vegetated shingle,4,Area,Line
+s3b5,Perennial vegetation on coastal shingle (H1220),5,Area,Line
+s3b6,Annual vegetation of drift lines (H1210),5,Area,Line
+r,Rivers and lakes,2,Area,Line
+r1,Standing open water and canals,3,Area,Point
+r1a,Eutrophic standing waters,4,Area
+r1a5,Naturally nutrient-rich lakes or lochs (H3150),5,Area
+r1a6,Other eutrophic standing waters,5,Area
+r1b,Mesotrophic lakes,4,Area
+r1b5,Calcium-rich nutrient-poor lakes lochs and pools (H3140),5,Area
+r1c,Oligotrophic and dystrophic lakes,4,Area
+r1c5,Clear-water lakes or lochs with aquatic vegetation (H3130),5,Area
+r1c6,Nutrient-poor shallow waters with aquatic vegetation on sand (H3110),5,Area
+r1d,Aquifer fed naturally fluctuating water bodies,4,Area
+r1e,Canals,4,Area
+r2,Rivers and streams,3,Area,Line
+r2a,Rivers (priority habitat),4,Area,Line
+r2a5,Rivers with floating vegetation (H3260),5,Area,Line
+r2a6,Other priority habitat rivers,5,Area,Line
+r2b,Other rivers and streams,4,Area,Line
+t,Marine inlets and transitional waters,2,Area
+t1,Littoral Rock,3,Area
+t1a,Intertidal chalk,4,Area
+t1b,Sabellaria alveolata reefs,4,Area
+t1c,Intertidal underboulder communities,4,Area
+t1d,Estuarine rocky habitats,4,Area
+t1e,Splash zone with lichens,4,Area
+t1f,Other littoral rock,4,Area
+t2,Littoral Sediment,3,Area
+t2a,Coastal saltmarsh,4,Area
+t2a5,Glasswort and other annuals colonising mud and sand (H1310),5,Area
+t2a6,Cord-grass swards (H1320),5,Area
+t2a7,Atlantic salt meadows (H1330),5,Area
+t2a8,Mediterranean saltmarsh scrub (H1420),5,Area
+t2b,Blue mussel beds on sediment,4,Area
+t2c,Seagrass beds [Zostera noltii],4,Area
+t2d,Intertidal mudflats,4,Area
+t2d5,Intertidal mudflats and sandflats (H1140),5,Area
+t2e,Sheltered muddy gravels,4,Area
+t2f,Peat and clay exposures with piddocks,4,Area
+t2g,Saline lagoons,4,Area
+t2g5,Saline lagoons (H1150),5,Area
+t2h,Beach,4,Area
