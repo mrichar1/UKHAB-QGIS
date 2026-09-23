@@ -2,14 +2,20 @@
 
 Automated generation of a GeoPackage and QGIS project for [UKHAB]([UKHab]https://(ukhab.org) habitat classification.
 
-This project is inspired by the original [UKHAB-QGIS](https://github.com/Skipper-is/UKHAB-QGIS) project - automating the generation of the GeoPackage and Project with a Python script.
+This project is inspired by the original [UKHAB-QGIS](https://github.com/Skipper-is/UKHAB-QGIS) project - automating the generation of the GeoPackage and Project with a Python script. The original files from this project can be found in the `legacy` directory.
 
 This code has been developed and tested with [QGIS](https://qgis.org/) `4.2` - while it is likely to work with earlier or later versions, this has not been tested - feedback welcome!
 
 
-## Use
+## Mapping Habitats
 
 To begin, open the appropriate `ukhab_template.qgz` file for the UKHab version you wish to map with.
+
+There are currently 3 UKHab versions available:
+
+* 2.1 - Draft version (Consultation likely to complete by end 2026).
+* 2.01 - Stable version (July 2023)
+* 1.0 - Legacy (original) version (May 2018)
 
 The project defaults to `EPSG:27700` (British National Grid).
 
