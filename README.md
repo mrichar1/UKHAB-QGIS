@@ -88,11 +88,7 @@ The main configuration settings are found in `config.py`, including paths, layer
 
 **Note**: Make sure to set `SCHEMA_VERSION` in `config.py` to the schema version that you wish to build, and ensure that directory exists and contains the relevant CSV files.
 
-To generate the GeoPackage, run:
+To generate the GeoPackage and QGIS project, run:
+`qgis --code create_ukhab.py`
 
-`python create_gpkg.py`
-
-To generate the QGIS project, run:
-`qgis --minimal --code create_ukhub_project.py`
-
-(QGIS will open, generate the project file, and save. QGIS will keep running to allow testing the new project - but DO NOT save any manual changes you make!
+(QGIS will open, generate the project file, and save. QGIS will keep running to allow testing the new project - but DO NOT save any manual changes you make!)

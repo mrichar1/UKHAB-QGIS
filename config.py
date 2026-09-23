@@ -10,6 +10,7 @@ Usage:
 """
 
 from os import path
+from osgeo import ogr
 
 # ============================================================================
 # File Paths
@@ -28,7 +29,7 @@ SECONDARY_CSV = path.join(SCHEMA_VERSION, "secondary_codes.csv")
 
 CRS = "EPSG:27700"  # British National Grid
 # The extent of the project map should default to that of the CRS
-EXTENT = (0, 0, 70000, 120000)
+EXTENT = (0, 0, 700000, 1200000)
 AUTHOR_DEFAULT = "@user_full_name"  # QGIS variable (no quotes)
 
 # ============================================================================
@@ -37,30 +38,44 @@ AUTHOR_DEFAULT = "@user_full_name"  # QGIS variable (no quotes)
 
 # Drawing layers with their geometry types
 # Used by both create_gpkg.py (to create layers) and create_ukhab_project.py (to configure)
-# Geometry types use UKHAB naming (Area, Line, Point) for filter expressions
+# 'ukhab' is used in filter expressions, 'ogr' is used for layer creation
 DRAWING_LAYERS = {
-    "Baseline_Areas": "Area",
-    "Baseline_Lines": "Line",
-    "Baseline_Points": "Point",
-    "Proposed_Areas": "Area",
-    "Proposed_Lines": "Line",
-    "Proposed_Points": "Point",
+    "Baseline_Areas": {"ukhab": "Area", "ogr": ogr.wkbPolygon},
+    "Baseline_Lines": {"ukhab": "Line", "ogr": ogr.wkbLineString},
+    "Baseline_Points": {"ukhab": "Point", "ogr": ogr.wkbPoint},
+    "Proposed_Areas": {"ukhab": "Area", "ogr": ogr.wkbPolygon},
+    "Proposed_Lines": {"ukhab": "Line", "ogr": ogr.wkbLineString},
+    "Proposed_Points": {"ukhab": "Point", "ogr": ogr.wkbPoint},
 }
 
 # Field definitions for all drawing layers
-# Type names are generic - each script maps to its own type system (GDAL vs QGIS)
 DRAWING_FIELDS = [
-    {"name": "code_l2", "type": "string", "width": 50, "required": True},
-    {"name": "code_l3", "type": "string", "width": 50},
-    {"name": "code_l4", "type": "string", "width": 50},
-    {"name": "code_l5", "type": "string", "width": 50},
-    {"name": "secondary_codes", "type": "string_list"},
-    {"name": "condition", "type": "string", "width": 20},
-    {"name": "author", "type": "string", "width": 100},
-    {"name": "created", "type": "datetime"},
-    {"name": "updated", "type": "datetime"},
-    {"name": "area", "type": "real"},
-    {"name": "length", "type": "real"},
+    {"name": "code_l2", "type": ogr.OFTString, "width": 50, "required": True},
+    {"name": "code_l3", "type": ogr.OFTString, "width": 50},
+    {"name": "code_l4", "type": ogr.OFTString, "width": 50},
+    {"name": "code_l5", "type": ogr.OFTString, "width": 50},
+    {"name": "secondary_codes", "type": ogr.OFTStringList},
+    {"name": "condition", "type": ogr.OFTString, "width": 20},
+    {"name": "author", "type": ogr.OFTString, "width": 100},
+    {"name": "created", "type": ogr.OFTDateTime},
+    {"name": "updated", "type": ogr.OFTDateTime},
+    {"name": "area", "type": ogr.OFTReal},
+    {"name": "length", "type": ogr.OFTReal},
+]
+
+# Field definitions for lookup tables (non-spatial)
+PRIMARY_FIELDS = [
+    {"name": "code", "type": ogr.OFTString, "width": 50},
+    {"name": "habitat", "type": ogr.OFTString, "width": 200},
+    {"name": "level", "type": ogr.OFTInteger},
+    {"name": "geometry", "type": ogr.OFTString, "width": 100},
+]
+
+SECONDARY_FIELDS = [
+    {"name": "code", "type": ogr.OFTString, "width": 50},
+    {"name": "name", "type": ogr.OFTString, "width": 200},
+    {"name": "habitats", "type": ogr.OFTString, "width": 200},
+    {"name": "geometry", "type": ogr.OFTString, "width": 100},
 ]
 
 # ============================================================================
@@ -73,6 +88,7 @@ DRAWING_FIELDS = [
 FIELD_CONFIG = {
     'code_l2': {
         'alias': 'Habitat L2',
+        'required': True,
         'valuerelation': {
             'layer': 'Primary_Codes',
             'key': 'code',
@@ -188,5 +204,3 @@ FORM_TABS = [
         'fields': ['author', 'created', 'updated', 'area', 'length'],
     },
 ]
-
-
