@@ -21,6 +21,8 @@ The project defaults to `EPSG:27700` (British National Grid).
 
 Each project file contains the following layers:
 
+![Layers](img/layers.png)
+
 2 editable mapping groups of layers:
 * Proposed - for mapping planned features.
 * Baseline - for mapping existing features.
@@ -37,6 +39,8 @@ Once a feature is drawn in an appropriate layer, a dialog will appear to record 
 
 **Habitat:**
 
+![Habitat](img/form1.png)
+
 * Habitat L2 to Habitat L5 (L2 mandatory, L3-5 optional) - The habitat type of the feature, at each level. Values are filtered by the previous level.
 
 * Secondary Codes - a multiple selection of all secondary codes, filtered by the selected primary habitat levels.
@@ -44,6 +48,8 @@ Once a feature is drawn in an appropriate layer, a dialog will appear to record 
 * Condition (optional) - the condition of the feature: Good, Fairly Good, Moderate, Fairly Poor, Poor
 
 **Metadata:**
+
+![Metadata](img/form2.png)
 
 * Author - defaults to current QGIS user.
 
