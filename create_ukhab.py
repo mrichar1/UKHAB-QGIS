@@ -26,6 +26,7 @@ from qgis.core import (
     QgsFillSymbol,
     QgsLineSymbol,
     QgsProject,
+    QgsSingleSymbolRenderer,
     QgsRectangle,
     QgsReferencedRectangle,
     QgsRendererCategory,
@@ -41,6 +42,10 @@ if cwd not in sys.path:
 
 from config import (
     AUTHOR_DEFAULT,
+    PROJECT_FIELD_CONFIG,
+    PROJECT_FIELDS,
+    PROJECT_FORM_TABS,
+    PROJECT_LAYERS,
     CONDITION_VALUES,
     CRS,
     DRAWING_FIELDS,
@@ -60,6 +65,43 @@ from config import (
 
 # Enable GDAL exceptions
 gdal.UseExceptions()
+
+
+def _create_layer_with_fields(ds, layer_name, geom_type, field_defs):
+    """Create a layer with the specified geometry type and fields."""
+    srs = osr.SpatialReference()
+    srs.ImportFromEPSG(int(CRS.split(':')[1]))
+    layer = ds.CreateLayer(layer_name, srs=srs, geom_type=geom_type)
+    for field_def in field_defs:
+        field = ogr.FieldDefn(field_def["name"], field_def["type"])
+        if "width" in field_def:
+            field.SetWidth(field_def["width"])
+        layer.CreateField(field)
+    return layer
+
+
+def _apply_field_defaults(layer, field_config, geom_type=None):
+    """Apply field aliases and default values from config."""
+    for field_name, config in field_config.items():
+        idx = layer.fields().indexOf(field_name)
+        if idx < 0:
+            continue
+
+        # Set alias
+        layer.setFieldAlias(idx, config.get('alias', field_name))
+
+        # Set default value if defined
+        if 'default' in config:
+            default_expr = config['default']
+            # For Area geometry, length field should use perimeter
+            if field_name == 'length' and geom_type == 'Area':
+                default_expr = 'round($perimeter, 2)'
+                layer.setFieldAlias(idx, 'Perimeter (m)')
+
+            default = QgsDefaultValue(default_expr)
+            if config.get('apply_on_update'):
+                default.setApplyOnUpdate(True)
+            layer.setDefaultValueDefinition(idx, default)
 
 
 def _create_lookup_table(ds, table_name, field_defs, csv_path):
@@ -97,16 +139,13 @@ def create_gpkg():
     _create_lookup_table(ds, "Primary_Codes", PRIMARY_FIELDS, PRIMARY_CSV)
     _create_lookup_table(ds, "Secondary_Codes", SECONDARY_FIELDS, SECONDARY_CSV)
 
-    # Create drawing layers
+    # Create UKHAB drawing layers (with attribute fields)
     for layer_name, geom_info in DRAWING_LAYERS.items():
-        srs = osr.SpatialReference()
-        srs.ImportFromEPSG(int(CRS.split(':')[1]))
-        layer = ds.CreateLayer(layer_name, srs=srs, geom_type=geom_info["ogr"])
-        for field_def in DRAWING_FIELDS:
-            field = ogr.FieldDefn(field_def["name"], field_def["type"])
-            if "width" in field_def:
-                field.SetWidth(field_def["width"])
-            layer.CreateField(field)
+        _create_layer_with_fields(ds, layer_name, geom_info["ogr"], DRAWING_FIELDS)
+
+    # Create project layers (with minimal metadata fields)
+    for layer_name, geom_type in PROJECT_LAYERS.items():
+        _create_layer_with_fields(ds, layer_name, geom_type, PROJECT_FIELDS)
 
 
 def create_qgis_project():
@@ -143,7 +182,7 @@ def create_qgis_project():
     project.addMapLayer(primary, addToLegend=False)
     project.addMapLayer(secondary, addToLegend=False)
 
-    # Create and configure drawing layers
+    # Create and configure ukhab drawing layers
     drawing_layers = {}
     for layer_name, geom_info in DRAWING_LAYERS.items():
         geom_type = geom_info["ukhab"]
@@ -186,40 +225,15 @@ def create_qgis_project():
         field_idx = layer.fields().indexOf("condition")
         layer.setEditorWidgetSetup(field_idx, QgsEditorWidgetSetup("ValueMap", {"map": CONDITION_VALUES}))
 
-        # Default values for calculated fields
-        if geom_type == "Area":
-            idx = layer.fields().indexOf("area")
-            default = QgsDefaultValue("round($area, 2)")
-            layer.setDefaultValueDefinition(idx, default)
-            idx = layer.fields().indexOf("length")
-            default = QgsDefaultValue("round($perimeter, 2)")
-            layer.setDefaultValueDefinition(idx, default)
-        elif geom_type == "Line":
-            idx = layer.fields().indexOf("length")
-            default = QgsDefaultValue("round($length, 2)")
-            layer.setDefaultValueDefinition(idx, default)
+        # Apply field aliases and default values
+        _apply_field_defaults(layer, FIELD_CONFIG, geom_type)
 
-        idx = layer.fields().indexOf("author")
-        default = QgsDefaultValue(AUTHOR_DEFAULT)
-        layer.setDefaultValueDefinition(idx, default)
-
-        idx = layer.fields().indexOf("created")
-        default = QgsDefaultValue("now()")
-        layer.setDefaultValueDefinition(idx, default)
-
-        idx = layer.fields().indexOf("updated")
-        default = QgsDefaultValue("now()")
-        default.setApplyOnUpdate(True)
-        layer.setDefaultValueDefinition(idx, default)
-
-        # Field aliases and constraints
+        # Set NOT NULL constraint on required fields
         for field_name, field_config in FIELD_CONFIG.items():
-            idx = layer.fields().indexOf(field_name)
-            if idx >= 0:
-                layer.setFieldAlias(idx, field_config.get('alias', field_name))
-                if field_config.get('required'):
+            if field_config.get('required'):
+                idx = layer.fields().indexOf(field_name)
+                if idx >= 0:
                     layer.setFieldConstraint(idx, QgsFieldConstraints.ConstraintNotNull)
-
 
         # Form tabs
         config = layer.editFormConfig()
@@ -236,7 +250,7 @@ def create_qgis_project():
             config.addTab(tab)
         layer.setEditFormConfig(config)
 
-        # Apply symbology
+        # Apply ukhab symbology
         if geom_type in ("Area", "Line"):
             is_proposed = layer_name.startswith("Proposed")
             renderer = QgsCategorizedSymbolRenderer(SYMBOLOGY_FIELD)
@@ -263,16 +277,65 @@ def create_qgis_project():
         project.addMapLayer(layer, False)
         drawing_layers[layer_name] = (layer, geom_info)
 
+    # Load and configure project (non-ukhab) layers
+    project_layers = []
+    for layer_name in PROJECT_LAYERS:
+        layer = load_layer(layer_name)
+
+        # Hide fid field
+        idx = layer.fields().indexOf("fid")
+        layer.setEditorWidgetSetup(idx, QgsEditorWidgetSetup("Hidden", {}))
+
+        # Apply field aliases and default values
+        _apply_field_defaults(layer, PROJECT_FIELD_CONFIG)
+
+        # Apply symbology (red outline for Boundary_line only)
+        if layer_name == "Boundary_line":
+            layer.setRenderer(QgsSingleSymbolRenderer(
+                QgsFillSymbol.createSimple({
+                    'color': '0,0,0,0',  # Transparent fill
+                    'outline_color': '255,0,0,255',  # Red outline
+                    'outline_width': '1.5'
+                })
+            ))
+
+        # Form configuration
+        config = layer.editFormConfig()
+        config.setLayout(QgsEditFormConfig.TabLayout)
+        config.clearTabs()
+        for tab_def in PROJECT_FORM_TABS:
+            tab = QgsAttributeEditorContainer(tab_def['name'], None)
+            tab.setType(Qgis.AttributeEditorContainerType.Tab)
+            for field_name in tab_def['fields']:
+                idx = layer.fields().indexOf(field_name)
+                if idx >= 0:
+                    field = QgsAttributeEditorField(field_name, idx, tab)
+                    tab.addChildElement(field)
+            config.addTab(tab)
+        layer.setEditFormConfig(config)
+
+        project.addMapLayer(layer, False)
+        project_layers.append(layer)
+
     # Build layer tree
     root = project.layerTreeRoot()
+
+    # Add project-specific layers (non-UKHAB)
+    project_group = root.addGroup("Project")
+    for layer in project_layers:
+        project_group.addLayer(layer)
+
+    # Add UKHAB layers
     proposed_group = root.addGroup("Proposed")
     baseline_group = root.addGroup("Baseline")
 
     for layer_name, (layer, _) in drawing_layers.items():
         if layer_name.startswith("Baseline"):
-            baseline_group.addLayer(layer)
+            node = baseline_group.addLayer(layer)
         else:
-            proposed_group.addLayer(layer)
+            node = proposed_group.addLayer(layer)
+        # Collapse sub-layers (categorized symbology etc) by default
+        node.setExpanded(False)
 
     # Add lookup layers to legend (below drawing layers)
     root.addLayer(primary)

@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-Shared configuration for UKHAB QGIS project.
+Configuration for UKHAB QGIS project.
 
-This file contains shared constants and structure definitions.
-Both create_gpkg.py and create_ukhab_project.py import from here.
+This file contains constants and structure definitions used by create_ukhab.py
 
 Usage:
     from config import DRAWING_LAYERS, DRAWING_FIELDS, AUTHOR_DEFAULT
@@ -36,9 +35,7 @@ AUTHOR_DEFAULT = "@user_full_name"  # QGIS variable (no quotes)
 # Layer Structure
 # ============================================================================
 
-# Drawing layers with their geometry types
-# Used by both create_gpkg.py (to create layers) and create_ukhab_project.py (to configure)
-# 'ukhab' is used in filter expressions, 'ogr' is used for layer creation
+# Drawing layers with their geometry types (ukhab name and ogr type)
 DRAWING_LAYERS = {
     "Baseline_Areas": {"ukhab": "Area", "ogr": ogr.wkbPolygon},
     "Baseline_Lines": {"ukhab": "Line", "ogr": ogr.wkbLineString},
@@ -48,14 +45,13 @@ DRAWING_LAYERS = {
     "Proposed_Points": {"ukhab": "Point", "ogr": ogr.wkbPoint},
 }
 
-# Field definitions for all drawing layers
-DRAWING_FIELDS = [
-    {"name": "code_l2", "type": ogr.OFTString, "width": 50, "required": True},
-    {"name": "code_l3", "type": ogr.OFTString, "width": 50},
-    {"name": "code_l4", "type": ogr.OFTString, "width": 50},
-    {"name": "code_l5", "type": ogr.OFTString, "width": 50},
-    {"name": "secondary_codes", "type": ogr.OFTStringList},
-    {"name": "condition", "type": ogr.OFTString, "width": 20},
+# Project-specific layers (non-UKHAB)
+PROJECT_LAYERS = {
+    "Boundary_line": ogr.wkbPolygon,
+}
+
+# Shared Metadata Fields (used by all spatial layers)
+METADATA_FIELDS = [
     {"name": "author", "type": ogr.OFTString, "width": 100},
     {"name": "created", "type": ogr.OFTDateTime},
     {"name": "updated", "type": ogr.OFTDateTime},
@@ -63,36 +59,58 @@ DRAWING_FIELDS = [
     {"name": "length", "type": ogr.OFTReal},
 ]
 
-# Field definitions for lookup tables (non-spatial)
-PRIMARY_FIELDS = [
-    {"name": "code", "type": ogr.OFTString, "width": 50},
-    {"name": "habitat", "type": ogr.OFTString, "width": 200},
-    {"name": "level", "type": ogr.OFTInteger},
-    {"name": "geometry", "type": ogr.OFTString, "width": 100},
+METADATA_FIELD_CONFIG = {
+    'author': {
+        'alias': 'Author',
+        'default': AUTHOR_DEFAULT,
+    },
+    'created': {
+        'alias': 'Created',
+        'default': 'now()',
+    },
+    'updated': {
+        'alias': 'Updated',
+        'default': 'now()',
+        'apply_on_update': True,
+    },
+    'area': {
+        'alias': 'Area (m²)',
+        'default': 'round($area, 2)',
+    },
+    'length': {
+        'alias': 'Length (m)',
+        # Default for Line geometry; overridden to $perimeter for Area geometry in code
+        'default': 'round($length, 2)',
+    },
+}
+
+# Shared Metadata form tab
+METADATA_TAB = {
+    'name': 'Metadata',
+    'fields': ['author', 'created', 'updated', 'area', 'length'],
+}
+
+# UKHAB-Specific Fields and Configuration
+UKHAB_SPECIFIC_FIELDS = [
+    {"name": "code_l2", "type": ogr.OFTString, "width": 50, "required": True},
+    {"name": "code_l3", "type": ogr.OFTString, "width": 50},
+    {"name": "code_l4", "type": ogr.OFTString, "width": 50},
+    {"name": "code_l5", "type": ogr.OFTString, "width": 50},
+    {"name": "secondary_codes", "type": ogr.OFTStringList},
+    {"name": "condition", "type": ogr.OFTString, "width": 20},
 ]
 
-SECONDARY_FIELDS = [
-    {"name": "code", "type": ogr.OFTString, "width": 50},
-    {"name": "name", "type": ogr.OFTString, "width": 200},
-    {"name": "habitats", "type": ogr.OFTString, "width": 200},
-    {"name": "geometry", "type": ogr.OFTString, "width": 100},
-]
+# Compose full field list: UKHAB-specific + shared metadata
+DRAWING_FIELDS = UKHAB_SPECIFIC_FIELDS + METADATA_FIELDS
 
-# ============================================================================
-# Field Configuration (Form Widgets)
-# ============================================================================
-
-# Field aliases (display names in forms) and ValueRelation configuration
-# Note: ValueRelation 'value' must be a field name, NOT an expression
-# Virtual field 'display_field' shows "Code - Habitat" format (e.g., "g - Grassland")
-FIELD_CONFIG = {
+UKHAB_SPECIFIC_FIELD_CONFIG = {
     'code_l2': {
         'alias': 'Habitat L2',
         'required': True,
         'valuerelation': {
             'layer': 'Primary_Codes',
             'key': 'code',
-            'value': 'display_field',  # Virtual field: "Code - Habitat"
+            'value': 'display_field',
             'filter': '"level" = 2 AND array_contains(string_to_array("geometry", \',\'), {geometry_type})',
         }
     },
@@ -128,7 +146,7 @@ FIELD_CONFIG = {
         'valuerelation': {
             'layer': 'Secondary_Codes',
             'key': 'code',
-            'value': 'display_field',  # Virtual field: "code - name"
+            'value': 'display_field',
             'filter': (
                 'array_contains(string_to_array("habitats", \',\'), current_value(\'code_l2\')) OR '
                 'array_contains(string_to_array("habitats", \',\'), current_value(\'code_l3\')) OR '
@@ -140,39 +158,72 @@ FIELD_CONFIG = {
     'condition': {
         'alias': 'Condition',
     },
-    'author': {
-        'alias': 'Author',
-    },
-    'created': {
-        'alias': 'Created',
-    },
-    'updated': {
-        'alias': 'Updated',
-    },
-    'area': {
-        'alias': 'Area (m²)',
-    },
-    'length': {
-        'alias': 'Length (m)',
-    },
 }
 
-# ValueMap for Condition field - ordered list preserves dropdown order
-CONDITION_VALUES = [
-    {"": ""},
-    {"Good": "Good"},
-    {"Fairly good": "Fairly good"},
-    {"Moderate": "Moderate"},
-    {"Fairly Poor": "Fairly Poor"},
-    {"Poor": "Poor"},
+# Merge UKHAB-specific + shared metadata config
+FIELD_CONFIG = {**UKHAB_SPECIFIC_FIELD_CONFIG, **METADATA_FIELD_CONFIG}
+
+# Note: ValueRelation 'value' must be a field name, NOT an expression
+# Virtual field 'display_field' shows "Code - Habitat" format (e.g., "g - Grassland")
+
+# UKHAB form tabs: Habitat + shared Metadata tab
+# Tabs are shown in the order listed
+FORM_TABS = [
+    {
+        'name': 'Habitat',
+        'fields': ['code_l2', 'code_l3', 'code_l4', 'code_l5', 'secondary_codes', 'condition'],
+    },
+    METADATA_TAB,
 ]
 
 # ============================================================================
-# Symbology
+# Project-Specific Fields and Configuration
 # ============================================================================
 
-# L2 habitat colors - keyed by code (what's stored in Code_L2 field)
-# Format: (Baseline RGB, Proposed RGB - lighter version)
+# Project-specific fields (in addition to shared metadata)
+PROJECT_SPECIFIC_FIELDS = [
+    {"name": "comment", "type": ogr.OFTString, "width": 255},
+]
+
+# Compose full field list: Project-specific + shared metadata
+PROJECT_FIELDS = PROJECT_SPECIFIC_FIELDS + METADATA_FIELDS
+
+PROJECT_SPECIFIC_FIELD_CONFIG = {
+    'comment': {
+        'alias': 'Comment',
+    },
+}
+
+# Merge project-specific + shared metadata config
+PROJECT_FIELD_CONFIG = {**PROJECT_SPECIFIC_FIELD_CONFIG, **METADATA_FIELD_CONFIG}
+
+# Project form tabs: layer-specific + shared Metadata tab
+PROJECT_FORM_TABS = [
+    {
+        'name': 'Boundary',
+        'fields': ['comment'],
+    },
+    METADATA_TAB,
+]
+
+# Fields to mao to primary_codes csv columns
+PRIMARY_FIELDS = [
+    {"name": "code", "type": ogr.OFTString, "width": 50},
+    {"name": "habitat", "type": ogr.OFTString, "width": 200},
+    {"name": "level", "type": ogr.OFTInteger},
+    {"name": "geometry", "type": ogr.OFTString, "width": 100},
+]
+
+# Fields to mao to secondary_codes csv columns
+SECONDARY_FIELDS = [
+    {"name": "code", "type": ogr.OFTString, "width": 50},
+    {"name": "name", "type": ogr.OFTString, "width": 200},
+    {"name": "habitats", "type": ogr.OFTString, "width": 200},
+    {"name": "geometry", "type": ogr.OFTString, "width": 100},
+]
+
+# L2 habitat colors - keyed by code
+# Format: {"baseline": (R, G, B), "proposed": (R, G, B)}
 L2_COLORS = {
     "g": {"baseline": (0, 252, 4), "proposed": (128, 255, 130)},        # Grassland
     "w": {"baseline": (51, 160, 44), "proposed": (153, 204, 150)},      # Woodland and Forest
@@ -188,19 +239,12 @@ L2_COLORS = {
 # Symbology field - which field to use for categorized rendering
 SYMBOLOGY_FIELD = "code_l2"
 
-# ============================================================================
-# Form Configuration
-# ============================================================================
-
-# Form tab structure - defines which fields appear in each tab
-# Tabs are shown in the order listed
-FORM_TABS = [
-    {
-        'name': 'Habitat',
-        'fields': ['code_l2', 'code_l3', 'code_l4', 'code_l5', 'secondary_codes', 'condition'],
-    },
-    {
-        'name': 'Metadata',
-        'fields': ['author', 'created', 'updated', 'area', 'length'],
-    },
+# ValueMap for Condition field - ordered list preserves dropdown order
+CONDITION_VALUES = [
+    {"": ""},
+    {"Good": "Good"},
+    {"Fairly good": "Fairly good"},
+    {"Moderate": "Moderate"},
+    {"Fairly Poor": "Fairly Poor"},
+    {"Poor": "Poor"},
 ]
